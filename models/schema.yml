@@ -39,6 +39,23 @@ sources:
             description: cost of prep of ship
           - name: ship_cost
             description: cost paid per ship
+  
+  - name: rawg
+    schema: lw_da_l18
+    description: dataset for demo class
+    tables:
+      - name: facebook
+        identifier: raw_gz_facebook
+
+      - name: criteo
+        identifier: raw_gz_criteo
+      
+      - name: bing
+        identifier: raw_gz_bing
+      
+      - name: adwords
+        identifier: raw_gz_adwords
+          
 
 models:
   - name: stg_raw__product
@@ -61,3 +78,15 @@ models:
 
   - name: finance_days
     description: mart  Evolution Requests
+
+  - name: stg_rawg__criteo
+    description: stg raw product
+  
+  - name: stg_rawg__bing
+    description: stg raw product
+
+  - name: stg_rawg__adwords
+    description: stg raw product
+
+  - name: stg_rawg__facebook
+    description: stg raw product
