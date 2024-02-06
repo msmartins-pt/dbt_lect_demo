@@ -6,23 +6,20 @@ sources:
     description: dataset for demo class
     tables:
       - name: product
-        identifier: raw_gz_product 
+        identifier: raw_gz_product
         columns:
-            - name: products_id
-              description: primary key 
-              tests:
-                - unique
-                - not_null
-            - name: purchase_price
-              description: price purchase
+          - name: products_id
+            description: primary key
+            tests:
+              - unique
+              - not_null
+          - name: purchase_price
+            description: price purchase
 
-
-
-              
       - name: sales
         identifier: raw_gz_sales
-        freshness: 
-          warn_after: {count: 90, period: day}
+        freshness:
+          warn_after: { count: 90, period: day }
         loaded_at_field: "CAST(date_date as TIMESTAMP)"
         tests:
           - unique:
@@ -31,23 +28,21 @@ sources:
       - name: ship
         identifier: raw_gz_ship
         columns:
-            - name: orders_id
-              description: primary key 
-              tests:
-                - not_null
-                - unique
-            - name: shipping_fee
-              description: shipping fee
-            - name: logcost
-              description: cost of prep of ship
-            - name: ship_cost
-              description: cost paid per ship
-
+          - name: orders_id
+            description: primary key
+            tests:
+              - not_null
+              - unique
+          - name: shipping_fee
+            description: shipping fee
+          - name: logcost
+            description: cost of prep of ship
+          - name: ship_cost
+            description: cost paid per ship
 
 models:
   - name: stg_raw__product
     description: stg raw product
-
 
   - name: stg_raw__sales
     description: stg raw sales
@@ -66,4 +61,3 @@ models:
 
   - name: finance_days
     description: mart  Evolution Requests
-
