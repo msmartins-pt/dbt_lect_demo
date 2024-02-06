@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: lw_da_l17
+    description: dataset for demo class
+    tables:
+      - name: product
+        identifier: raw_gz_product
+
+      - name: sales
+        identifier: raw_gz_sales
+
+      - name: ship
+        identifier: raw_gz_ship
+
+models:
+    - name: stg_raw__product
+      description: stg raw product
+
+
+    - name: stg_raw__sales
+      description: stg raw sales
+
+
+    - name: stg_raw__ship
+      description: stg raw ship
