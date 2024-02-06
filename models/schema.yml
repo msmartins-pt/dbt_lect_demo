@@ -39,7 +39,7 @@ sources:
             description: cost of prep of ship
           - name: ship_cost
             description: cost paid per ship
-  
+
   - name: rawg
     schema: lw_da_l18
     description: dataset for demo class
@@ -49,13 +49,12 @@ sources:
 
       - name: criteo
         identifier: raw_gz_criteo
-      
+
       - name: bing
         identifier: raw_gz_bing
-      
+
       - name: adwords
         identifier: raw_gz_adwords
-          
 
 models:
   - name: stg_raw__product
@@ -80,13 +79,48 @@ models:
     description: mart  Evolution Requests
 
   - name: stg_rawg__criteo
-    description: stg raw product
-  
+    description: stg rawg criteo
+
   - name: stg_rawg__bing
-    description: stg raw product
+    description: stg rawg bing
 
   - name: stg_rawg__adwords
-    description: stg raw product
+    description: stg rawg adworks
 
   - name: stg_rawg__facebook
-    description: stg raw product
+    description: stg rawg facebook
+
+  - name: int_campaigns
+    description: int campaigns union
+
+  - name: int_campaigns_day
+    description: int campaigns by day
+
+  - name: finance_campaigns_days
+    description: global kpi days
+    columns:
+      - name: ads_margin
+        description: operational_margin - ads_cost
+      - name: average_basket
+        description: average basket cost for each day
+    tests:
+      - not_null:
+          column_name:
+            - ads_margin
+            - average_basket
+
+
+  - name: finance_campaigns_month
+    description: global kpi month
+    columns:
+      - name: ads_margin
+        description: operational_margin - ads_cost
+      - name: average_basket
+        description: average basket cost for each month
+    tests:
+      - not_null:
+          column_name:
+            - ads_margin
+            - average_basket
+
+

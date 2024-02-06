@@ -1,11 +1,10 @@
-SELECT *
-FROM {{ref('stg_rawg__adwords')}}
-UNION ALL 
-SELECT *
-FROM {{ref('stg_rawg__bing')}}
-UNION ALL 
-SELECT *
-FROM {{ref('stg_rawg__criteo')}}
-UNION ALL 
-SELECT *
-FROM {{ref('stg_rawg__facebook')}}
+{{
+    dbt_utils.union_relations(
+        relations=[
+            ref("stg_rawg__adwords"),
+            ref("stg_rawg__bing"),
+            ref("stg_rawg__criteo"),
+            ref("stg_rawg__facebook"),
+        ]
+    )
+}}
