@@ -38,3 +38,5 @@ models:
     # Applies to all files under models/example/
     datamart:
       +materialized: table
+      finance:
+        +schema: finance
