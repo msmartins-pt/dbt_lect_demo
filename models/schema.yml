@@ -58,3 +58,9 @@ models:
   - name: int_sales_margin
     description: int sales margin
 
+  - name: int_orders_margin
+    description: int orders margin
+
+  - name: int_orders_operational
+    description: int orders operational margin
+
